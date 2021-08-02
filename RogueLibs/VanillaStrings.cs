@@ -50,12 +50,57 @@ namespace RogueLibsCore
             Thief = "Thief",
             UpperCruster = "UpperCruster",
             Vampire = "Vampire",
-            WerewolfB = "WerewolfB",
+            Werewolf = "WerewolfB",
             Worker = "Worker",
             Wrestler = "Wrestler",
             Zombie = "Zombie";
+
+        public static List<string> Criminal = new List<string>()
+        {
+            Blahd,
+            Crepe,
+            DrugDealer,
+            Mobster,
+            Thief,
+        };
+
+        public static List<string> LawEnforcement = new List<string>()
+        {
+            Cop,
+            CopBot,
+            SuperCop,
+        };
+
+        public static List<string> Nonhuman = new List<string>()
+        {
+            Alien,
+            CopBot,
+            Gorilla,
+            Ghost,
+            Robot,
+            RobotPlayer,
+            ShapeShifter,
+            Werewolf,
+            Vampire,
+            Zombie,
+        };
+
+        public static List<string> Supernatural = new List<string>()
+        {
+            Ghost,
+            Werewolf,
+            Vampire,
+            Zombie,
+        };
+
+        public static List<string> Undead = new List<string>()
+        {
+            Ghost,
+            Vampire,
+            Zombie
+        };
     }
-    public static class vGoals // Vanilla Agent Goals
+    public static class vAgentGoal // Vanilla Agent Goals
     {
         public const string
             CuriousObject = "CuriousObject",
@@ -73,6 +118,50 @@ namespace RogueLibsCore
             Wander = "Wander",
             WanderFar = "WanderFar",
             WanderInOwnedProperty = "WanderInOwnedProperty";
+    }
+    public static class vAgentGroup // Vanilla Agent Groups
+    {
+        public const string
+            ArenaBattlers = "ArenaBattler",
+            BlueCollars = "BlueCollars",
+            BusinessOwners = "BusinessOwners",
+            Cabin = "ParkHome",
+            Cave = "Cave",
+            Creatures = "Creatures",
+            Downtown = "Downtown",
+            Entertainers = "Entertainers",
+            Fighters = "Fighters",
+            Gangbangers = "GangbangerType",
+            Guards = "GuardType",
+            Hideout = "Hideout",
+            HideoutIndustrial = "HideoutIndustrial",
+            Hooligans = "Hooligans",
+            HooligansNoGangbangers = "HooligansNoGangbangers",
+            Hostages = "Kidnapped",
+            LabSpecimens = "LabSpecimens",
+            LawEnforcement = "LawWorkers",
+            Park = "Park",
+            Slums = "SlumsAgent",
+            Uptown = "Uptown",
+            UptownHome = "UptownHome",
+            WhiteCollars = "WhiteCollars";
+    }
+    public static class vAmbience // Vanilla Ambient Audio Loops
+    {
+        public const string
+            AirConditioner = "AirFiltrationAmbience",
+            BathHouse = "SpaAmbience",
+            Casino = "CasinoAmbience",
+            Cave = "CavernAmbience",
+            Computer = "ComputerAmbience",
+            ConveyorBelt = "EscalatorAmbience",
+            Generator = "GeneratorAmbience",
+            GeneratorOverclocked = "OverclockedGeneratorAmbience",
+            Graveyard = "GraveyardAmbience",
+            LampPost = "LampPostAmbience",
+            Laser = "LaserAmbience",
+            Park = "ParkAmbience",
+            Television = "TVAmbience";
     }
     public static class vArmor // Vanilla Armor
     {
@@ -529,6 +618,42 @@ namespace RogueLibsCore
             ZombieSpitCharge = "ZombieSpitCharge",
             ZombieSpitFire = "ZombieSpitFire";
     }
+    public static class vChallenge // Vanilla Mutators
+    {
+        public const string
+            AssassinsEveryLevel = "AssassinsEveryLevel",
+            BigKnockback = "BigKnockbackForAll",
+            CoolWithCannibals = "CannibalsDontAttack",
+            DoctorsMoreImportant = "DoctorsMoreImportant",
+            EveryoneHatesYou = "EveryoneHatesYou",
+            ExplodingBodies = "ExplodingBodies",
+            FullHealth = "FullHealth",
+            GorillaTown = "GorillaTown",
+            HalfHealth = "HalfHealth",
+            HighCost = "HighCost",
+            InfiniteAmmo = "InfiniteAmmo",
+            InfiniteAmmoNormalWeapons = "InfiniteAmmoNormalWeapons",
+            InfiniteMeleeDurability = "InfiniteMeleeDurability",
+            LowHealth = "LowHealth",
+            ManyWerewolf = "ManyWerewolf",
+            MixedUpLevels = "MixedUpLevels",
+            MoneyRewards = "MoneyRewards",
+            NoCops = "NoCops",
+            NoCowards = "NoCowards",
+            NoGuns = "NoGuns",
+            NoLimits = "NoLimits",
+            NoMelee = "NoMelee",
+            RocketLaunchers = "RocketLaunchers",
+            RogueVision = "RogueVision",
+            SlowDown = "SlowDown",
+            SpeedUp = "SpeedUp",
+            SupercopLand = "SupercopsReplaceCops",
+            TimeLimit = "TimeLimit",
+            TimeLimit2 = "TimeLimit2",
+            TimeLimitQuestsGiveMoreTime = "TimeLimitQuestsGiveMoreTime",
+            ZombieMutator = "ZombieMutator",
+            ZombiesWelcome = "ZombiesWelcome";
+    }
     public static class vChunkType // Vanilla Chunks
     {
         public const string
@@ -583,6 +708,402 @@ namespace RogueLibsCore
             SlaveShop = "SlaveShop",
             TVStation = "TVStation",
             Zoo = "Zoo";
+
+        #region Downtown
+        public static List<string> DowntownLimitedTo1 = new List<string>()
+        {
+            Arcade,
+            Arena,
+            // Bank, // [sic], but prohibited
+            Bathroom,
+            Church,
+            CityPark,
+            DanceClub,
+            FireStation,
+            Graveyard,
+            Hideout,
+            IceRink,
+            Mall,
+            MovieTheater,
+            MusicHall,
+            PoliceStation,
+            Shop,
+            SlaveShop,
+        };
+        public static List<string> DowntownLimitedTo2 = new List<string>()
+        {
+            Bar,
+            Casino,
+            Hotel,
+        };
+        public static List<string> DowntownProhibited = new List<string>()
+        {
+            Apartments,
+            Armory,
+            Bank,
+            Bathhouse,
+            Cabin,
+            Cave,
+            ConfiscationCenter,
+            DeportationCenter,
+            DrugDen,
+            Farm,
+            GatedCommunity,
+            Greenhouse,
+            HedgeMaze,
+            Hospital,
+            House,
+            HouseUptown,
+            Lab,
+            Mansion,
+            MayorHouse,
+            MayorOffice,
+            MilitaryOutpost,
+            OfficeBuilding,
+            Pit,
+            PodiumPark,
+            PoliceOutpost,
+            Prison,
+            PrivateClub,
+            Shack,
+            TVStation,
+            Zoo,
+        };
+        public static List<string> DowntownUnlimited = new List<string>()
+        {
+            Generic,
+            None,
+        };
+        #endregion
+        #region Industrial
+        public static List<string> IndustrialLimitedTo1 = new List<string>()
+        {
+            Bank,
+            Bathroom,
+            FireStation,
+            Graveyard,
+            Hospital,
+            PoliceStation,
+            Prison,
+            Shop,
+            SlaveShop,
+        };
+        public static List<string> IndustrialLimitedTo2 = new List<string>()
+        {
+            Armory,
+            Bar,
+            Casino,
+            Hideout,
+            "Factory",
+            Lab,
+        };
+        public static List<string> IndustrialLimitedTo3 = new List<string>()
+        {
+            Apartments,
+            DrugDen,
+            House,
+            OfficeBuilding,
+            Shack,
+        };
+        public static List<string> IndustrialProhibited = new List<string>()
+        {
+            Arcade,
+            Arena,
+            Bathhouse,
+            Cabin,
+            Cave,
+            Church,
+            CityPark,
+            ConfiscationCenter,
+            DanceClub,
+            DeportationCenter,
+            Farm,
+            GatedCommunity,
+            Greenhouse,
+            HedgeMaze,
+            Hotel,
+            HouseUptown,
+            IceRink,
+            Mall,
+            Mansion,
+            MayorHouse,
+            MayorOffice,
+            MilitaryOutpost,
+            MovieTheater,
+            MusicHall,
+            Pit,
+            PodiumPark,
+            PoliceOutpost,
+            PrivateClub,
+            TVStation,
+            Zoo,
+        };
+        public static List<string> IndustrialUnlimited = new List<string>()
+        {
+            Generic,
+            None,
+        };
+        #endregion
+        #region Mayor's Village
+        public static List<string> MayorVillageLimitedTo1 = new List<string>()
+        {
+            Bank,
+            Bar,
+            Bathhouse,
+            // Bathroom, // [sic]; also included in prohibited
+            Church,
+            DanceClub,
+            FireStation,
+            Hospital,
+            MayorHouse,
+            MayorOffice,
+            MusicHall,
+            Pit,
+            PodiumPark,
+            PoliceOutpost,
+            // PoliceStation, // [sic]; also included in prohibited
+            PrivateClub,
+            Shop,
+            SlaveShop,
+            Zoo,
+        };
+        public static List<string> MayorVillageLimitedTo2 = new List<string>()
+        {
+            HouseUptown,
+        };
+        public static List<string> MayorVillageProhibited = new List<string>()
+        {
+            Apartments,
+            Arcade,
+            Arena,
+            Armory,
+            Bathroom,
+            Cabin,
+            Casino,
+            Cave,
+            CityPark,
+            ConfiscationCenter,
+            DeportationCenter,
+            DrugDen,
+            Farm,
+            Graveyard,
+            Greenhouse,
+            HedgeMaze,
+            Hideout,
+            Hotel,
+            House,
+            IceRink,
+            Lab,
+            Mall,
+            Mansion,
+            MilitaryOutpost,
+            MovieTheater,
+            OfficeBuilding,
+            PoliceStation,
+            Prison,
+            Shack,
+            TVStation,
+        };
+        public static List<string> MayorVillageUnlimited = new List<string>()
+        {
+            GatedCommunity,
+            Generic,
+            None,
+        };
+        #endregion
+        #region Park
+        public static List<string> ParkLimitedTo1 = new List<string>()
+        {
+            Graveyard,
+            HedgeMaze,
+            Hideout,
+        };
+        public static List<string> ParkLimitedTo2 = new List<string>()
+        {
+            MilitaryOutpost,
+        };
+        public static List<string> ParkLimitedTo3 = new List<string>()
+        {
+            Cabin,
+            Cave,
+            Farm,
+            Greenhouse,
+        };
+        public static List<string> ParkProhibited = new List<string>()
+        {
+            Arcade,
+            Arena,
+            Bathhouse,
+            Church,
+            CityPark,
+            ConfiscationCenter,
+            DanceClub,
+            DeportationCenter,
+            FireStation,
+            GatedCommunity,
+            Hotel,
+            HouseUptown,
+            IceRink,
+            Mall,
+            Mansion,
+            MayorHouse,
+            MayorOffice,
+            MovieTheater,
+            MusicHall,
+            Pit,
+            PodiumPark,
+            PoliceOutpost,
+            PrivateClub,
+            TVStation,
+            Zoo,
+        };
+        public static List<string> ParkUnlimited = new List<string>()
+        {
+            Bathroom,
+            Generic,
+            Shop,
+        };
+        #endregion
+        #region Slums
+        public static List<string> SlumsLimitedTo1 = new List<string>()
+        {
+            Bank,
+            Bathroom,
+            Graveyard,
+            Hideout,
+            Hospital,
+            PoliceStation,
+            Prison,
+            Shop,
+            SlaveShop
+        };
+        public static List<string> SlumsLimitedTo2 = new List<string>()
+        {
+            Armory,
+            Bar,
+            Casino,
+            Lab,
+        };
+        public static List<string> SlumsLimitedTo3 = new List<string>()
+        {
+            Apartments,
+            DrugDen,
+            House,
+            OfficeBuilding,
+            Shack,
+        };
+        public static List<string> SlumsProhibited = new List<string>()
+        {
+            Arcade,
+            Arena,
+            Bathhouse,
+            Cabin,
+            Cave,
+            Church,
+            CityPark,
+            ConfiscationCenter,
+            DanceClub,
+            DeportationCenter,
+            Farm,
+            FireStation,
+            GatedCommunity,
+            Greenhouse,
+            HedgeMaze,
+            Hotel,
+            HouseUptown,
+            IceRink,
+            Mall,
+            Mansion,
+            MayorHouse,
+            MayorOffice,
+            MilitaryOutpost,
+            MovieTheater,
+            MusicHall,
+            Pit,
+            PodiumPark,
+            PoliceOutpost,
+            PrivateClub,
+            TVStation,
+            Zoo,
+        };
+        public static List<string> SlumsUnlimited = new List<string>()
+        {
+            Generic,
+            None,
+        };
+        #endregion
+        #region Uptown
+        public static List<string> UptownLimitedTo1 = new List<string>()
+        {
+            Bank,
+            Bathhouse,
+            Church,
+            CityPark,
+            ConfiscationCenter,
+            DeportationCenter,
+            FireStation,
+            Graveyard,
+            //Hideout, // [sic]
+            IceRink,
+            Mall,
+            Mansion,
+            Pit,
+            PoliceStation,
+            Shop,
+            SlaveShop,
+            TVStation,
+            Zoo,
+        };
+        public static List<string> UptownLimitedTo2 = new List<string>()
+        {
+            Bathroom,
+            GatedCommunity,
+            MusicHall,
+            PrivateClub,
+        };
+        public static List<string> UptownLimitedTo3 = new List<string>()
+        {
+            PoliceOutpost,
+        };
+        public static List<string> UptownLimitedTo5 = new List<string>()
+        {
+            HouseUptown,
+        };
+        public static List<string> UptownProhibited = new List<string>()
+        {
+            Apartments,
+            Arcade,
+            Arena,
+            Armory,
+            Bar,
+            Cabin,
+            Casino,
+            Cave,
+            DanceClub,
+            DrugDen,
+            Farm,
+            HedgeMaze,
+            Hideout,
+            Hotel,
+            House,
+            MayorHouse,
+            MayorOffice,
+            MilitaryOutpost,
+            MovieTheater,
+            OfficeBuilding,
+            PodiumPark,
+            Prison,
+            Shack,
+        };
+        public static List<string> UptownUnlimited = new List<string>()
+        {
+            Generic,
+            Greenhouse,
+            Hospital,
+            Lab,
+            None,
+        };
+        #endregion
     }
     public static class vColor // Vanilla Colors
     {
@@ -633,6 +1154,72 @@ namespace RogueLibsCore
             SouthEast = "SE",
             SouthWest = "SW",
             West = "W";
+    }
+    public static class vExperience // Vanilla Experience Types
+    {
+        public const string
+            Arrest_100 = "ArrestedPoints",
+            ArrestInnocent_10 = "ArrestedPointsInnocent",
+            BQDowntown_500 = "BigQuestBonusDowntown",
+            BQFloor_300 = "BigQuestBonusFloor",
+            BQGame_1000 = "BigQuestBonusGame",
+            BQIndustrial_500 = "BigQuestBonusIndustrial",
+            BQSlums_500 = "BigQuestBonusSlums",
+            BQUptown_500 = "BigQuestBonusUptown",
+            CompleteMission_300 = "CompleteMission",
+            CompleteFindBombs_700 = "CompleteMissionFindBombs",
+            CompleteMission_150 = "CompleteMissionReduced",
+            Destruction_200 = "Destruction",
+            Destruction_1 = "DestructionPoints",
+            Destruction_2 = "DestructionPoints2",
+            DisarmDetonator_20 = "DisarmDetonatorPoints",
+            Electability_100 = "ElectabilityBonus",
+            Enslave_30 = "Enslaved",
+            FindTreasure_100 = "FindTreasure",
+            ExtinguishFire_5 = "FireExtinguishPoints",
+            FreePrisoner_20 = "FreedPrisoner",
+            FreeSlave_50 = "FreedSlave",
+            Hack_20 = "HackPoints",
+            KillIndirect_30 = "IndirectlyKill",
+            KillIndirectInnocent_10 = "IndirectlyKillInnocent",
+            KillIndirectRival_90 = "IndirectlyKillRival",
+            Joke_30 = "Joke",
+            KillRobot_1000 = "KilledRobot",
+            Kill_50 = "KillPoints",
+            KillInnocent_10 = "KillPointsInnocent",
+            KillRival_150 = "KillPointsRival",
+            Knockout_75 = "KnockOutPoints",
+            KnockoutInnocent_10 = "KnockOutPointsInnocent",
+            KnockoutRival_150 = "KnockOutPointsRival",
+            Lockpick_20 = "LockpickPoints",
+            ManySleeping_100 = "ManySleeping",
+            Massacre_100 = "Massacre",
+            LevelNoAnger_100 = "NoAngerLevel",
+            NoDamageTaken_100 = "NoDamageTaken",
+            NoDestruction_200 = "NoDestruction",
+            NoGuns_200 = "NoGuns",
+            NoKill_100 = "NoKillBonus",
+            LevelNoKill_100 = "NoKillLevel",
+            NotAlerted_100 = "NotAlerted",
+            OnlyFists_200 = "OnlyFists",
+            Pickpocket_15 = "PickpocketPoints",
+            PoisonAir_20 = "PoisonAirPoints",
+            RemoveSlaveHelmet_20 = "RemoveSlaveHelmetPoints",
+            RemoveWindow_20 = "RemoveWindowPoints",
+            ShakedownFail_100 = "ShakedownFailPoints",
+            Shakedown_100 = "ShakedownPoints",
+            Steal_10 = "StealPoints",
+            StealNegative_10 = "StealPointsNegative",
+            StoleLots_200 = "StoleLots",
+            TamperGenerator_20 = "TamperGeneratorPoints",
+            TamperLaserEmitter_20 = "TamperLaserEmitterPoints",
+            TamperPoliceBox_20 = "TamperPoliceBoxPoints",
+            TamperSatelliteDish_20 = "TamperSatelliteDishPoints",
+            TimeBonus_100 = "TimeBonus",
+            TwoPlayerWinner1_200 = "TwoPlayerWinner1",
+            TwoPlayerWinner2_200 = "TwoPlayerWinner2",
+            UnlockSafe_20 = "UnlockSafePoints",
+            WonElection_100 = "WonElectionPoints";
     }
     public static class vExplosion // Vanilla Explosion Types
     {
@@ -728,6 +1315,24 @@ namespace RogueLibsCore
             Water = "Water",
             WoodClean = "WoodClean",
             WoodSlats = "WoodSlats";
+    }
+    public static class vFloorTileGroup // Vanilla Floor Tile Groups
+    {
+        public const string
+            Building = "FloorTilesBuilding",
+            Disposal = "Disposal",
+            Downtown = "FloorTilesDowntown",
+            UnknownPossiblyGeneric = "FloorTiles",
+            HoleTiles = "HoleTiles",
+            Ice = "IceTiles",
+            Industrial = "FloorTilesIndustrial",
+            MayorVillage = "FloorTilesMayor",
+            Park = "FloorTilesOutdoor",
+            Rug = "Rug",
+            Slums = "FloorTilesMain",
+            Uptown = "FloorTilesWealthy",
+            Wall = "WallTiles",
+            Water = "WaterTiles";
     }
     public static class vHairType // Vanilla Hair
     {
@@ -1033,41 +1638,17 @@ namespace RogueLibsCore
             Null = "",
             Tutorial = "Tutorial";
     }
-    public static class vChallenge // Vanilla Mutators
+    public static class vNameType // Vanilla Name Types
     {
         public const string
-            AssassinsEveryLevel = "AssassinsEveryLevel",
-            BigKnockbackForAll = "BigKnockbackForAll",
-            CoolWithCannibals = "CannibalsDontAttack",
-            DoctorsMoreImportant = "DoctorsMoreImportant",
-            EveryoneHatesYou = "EveryoneHatesYou",
-            ExplodingBodies = "ExplodingBodies",
-            FullHealth = "FullHealth",
-            GorillaTown = "GorillaTown",
-            HalfHealth = "HalfHealth",
-            HighCost = "HighCost",
-            InfiniteAmmo = "InfiniteAmmo",
-            InfiniteAmmoNormalWeapons = "InfiniteAmmoNormalWeapons",
-            InfiniteMeleeDurability = "InfiniteMeleeDurability",
-            LowHealth = "LowHealth",
-            ManyWerewolf = "ManyWerewolf",
-            MixedUpLevels = "MixedUpLevels",
-            MoneyRewards = "MoneyRewards",
-            NoCops = "NoCops",
-            NoCowards = "NoCowards",
-            NoGuns = "NoGuns",
-            NoLimits = "NoLimits",
-            NoMelee = "NoMelee",
-            RocketLaunchers = "RocketLaunchers",
-            RogueVision = "RogueVision",
-            SlowDown = "SlowDown",
-            SpeedUp = "SpeedUp",
-            SupercopsReplaceCops = "SupercopsReplaceCops",
-            TimeLimit = "TimeLimit",
-            TimeLimit2 = "TimeLimit2",
-            TimeLimitQuestsGiveMoreTime = "TimeLimitQuestsGiveMoreTime",
-            ZombieMutator = "ZombieMutator",
-            ZombiesWelcome = "ZombiesWelcome";
+            Agent = "Agent",
+            Dialogue = "Dialogue",
+            Description = "Description",
+            Interface = "Interface",
+            Item = "Item",
+            Object = "Object",
+            StatusEffect = "StatusEffect",
+            Unlock = "Unlock";
     }
     public static class vObject // Vanilla Objects
     {
@@ -1123,6 +1704,14 @@ namespace RogueLibsCore
             PoolTable = "PoolTable",
             PowerBox = "PowerBox";
     }
+    public static class vOwnerId // Vanilla Magic Number Owner IDs (WIP)
+    {
+        public const int
+            Unknown_0 = 0,
+            Unknown_1 = 99,
+            Unknown_2 = 255,
+            AngersCops = 888;
+    };
     public static class vQuest // Vanilla Quests
     {
         public const string
@@ -1149,6 +1738,17 @@ namespace RogueLibsCore
             Failed = "Failed",
             NotAccepted = "NotAccepted",
             Null = "";
+    }
+    public static class vRelationship // Vanilla Relationships
+    {
+        public const string
+            Aligned = "Aligned",
+            Annoyed = "Annoyed",
+            Friendly = "Friendly",
+            Hostile = "Hateful",
+            Loyal = "Loyal",
+            Neutral = "Neutral",
+            Submissive = "Submissive";
     }
     public static class vSecurityType // Vanilla Security Types
     {
@@ -1277,7 +1877,6 @@ namespace RogueLibsCore
     public static class vTrait // Vanilla Traits
     {
         public const string
-            AbovetheLaw = "AboveTheLaw",
             Accurate = "Accurate",
             Addict = "Addict",
             Aftershocked = "StompDamagesAgents",
@@ -1337,6 +1936,7 @@ namespace RogueLibsCore
             EggshellWalker = "JokesNeverCauseHate",
             Electronic = "Electronic",
             Extortionist = "Shakedowner",
+            Extortionist_2 = "Shakedowner2",
             FairGame = "EveryoneHatesZombie",
             FastFood = "CannibalizeFaster",
             FeatureAct = "JokesMoreSuccessful/JokesAlwaysSuccessful",
@@ -1358,6 +1958,7 @@ namespace RogueLibsCore
             HonorAmongThieves = "HonorAmongThieves",
             HonorableChallenges = "ChallengeAnyoneToFight",
             ImOuttie = "FastWhenHealthLow",
+            ImOuttie_2 = "FastWhenHealthLow2",
             IdeologicalClash = "RandomPeopleSecretHate",
             ImpatientLunge = "FasterLunge",
             IncreasedCritChance = "IncreasedCritChance",
@@ -1373,6 +1974,7 @@ namespace RogueLibsCore
             Kneecapper = "ChanceToSlowEnemies",
             KnockbackKing = "CauseBiggerKnockback",
             Knuckley = "StrongFists",
+            Knuckley_2 = "StrongFists2",
             LeisurelyRide = "MoreTimeForDeliveries",
             LockandLoad = "ReloadWeaponsNewLevel",
             LonelinessKiller = "StartWithFollowers",
@@ -1431,6 +2033,7 @@ namespace RogueLibsCore
             SappyHealthy = "MoreHealthFromPowerSap",
             SausageFingers = "CantUseWeapons2",
             Savorer = "CannibalizeMoreHealth",
+            ScientistSlayer = "HatesScientist",
             ScorchingSavior = "FightsFires",
             ScumbagSlaughterer = "MechHateTrait",
             SecretVandalizer = "HitObjectsNoNoise",
@@ -1451,7 +2054,7 @@ namespace RogueLibsCore
             StrictCannibal = "CannibalizeRestoresHealth",
             StubbyFingers = "CantUseGuns",
             Studious = "MoreSkillPoints",
-            Studious2 = "MoreSkillPoints",
+            SuperStudious = "MoreSkillPoints2",
             SubduingSpree = "NoChloroformCooldown",
             Sucker = "BadTrader",
             SuperDizzy = "DizzyB",
@@ -1471,16 +2074,66 @@ namespace RogueLibsCore
             TrustFunder = "MoneyAtLevelStart",
             UltimateButterfingerer = "KnockWeapons",
             UnCrits = "ChanceAttacksDoZeroDamage",
+            UnCrits_2 = "ChanceAttacksDoZeroDamage2",
             UpperCrusty = "UpperCrusty",
             VeinTapper = "BiteGainMoreHealth",
             ViciousChameleon = "FailedAttacksDontEndCamouflage",
             VocallyChallenged = "CantSpeakEnglish",
             WallWalloper = "MeleeDestroysWalls",
             WallsWorstNightmare = "MoreKnockingThroughWalls",
-            Wanted = "Wanted",
+            Wanted = "Naked",
             WerewolfAWereness = "WerewolfAwareness",
             WrongBuilding = "OwnersNotHostile",
             Zombiism = "Zombify";
+
+        public static List<string> EnhanceDrugs = new List<string>()
+        {
+            Addict,
+        };
+        public static List<string> EnhanceFood = new List<string>()
+        {
+            BananaLover,
+        };
+        public static List<string> ExperienceRate = new List<string>()
+        {
+            Studious,
+            SuperStudious,
+        };
+        public static List<string> LimitDrugs = new List<string>()
+        {
+            OilReliant
+        };
+        public static List<string> LimitFood = new List<string>()
+        {
+            Electronic,
+            Jugularious,
+            OilReliant,
+            StrictCannibal,
+        };
+        public static List<string> LimitWeapons = new List<string>()
+        {
+            NearHarmless,
+            Pacifist,
+            StubbyFingers,
+            SausageFingers
+        };
+        public static List<string> RelationshipInitialGeneral = new List<string>()
+        {
+            Charismatic,
+            RandomReverence,
+        };
+        public static List<string> RelationshipInitialSpecific = new List<string>()
+        {
+            BlahdBasher,
+            CoolwithCannibals,
+            ClassSolidarity,
+            CrepeCrusher,
+            FriendoftheCommonFolk,
+            FriendoftheFamily,
+            ScientistSlayer,
+            Specist,
+            TheLaw,
+        };
     }
     public static class vWall // Vanilla Walls
     {
@@ -1494,5 +2147,13 @@ namespace RogueLibsCore
             Normal = "Normal",
             Steel = "Steel",
             Wood = "Wood";
+    }
+    public static class vWallGroup // Vanilla Wall Groups
+    {
+        public const string
+            Hideout = "WallsHideout",
+            Normal = "WallsNormal",
+            Strong = "WallsStrong",
+            Weak = "WallsWeak";
     }
 }
